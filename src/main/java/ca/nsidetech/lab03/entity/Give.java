@@ -8,13 +8,15 @@ import javax.persistence.Id;
 @Entity
 public class Give {
 
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
     private String phone;
+
+    
     private String email;
     private String pays;
 
