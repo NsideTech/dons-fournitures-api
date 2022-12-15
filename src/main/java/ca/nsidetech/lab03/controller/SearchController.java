@@ -47,7 +47,6 @@ public class SearchController {
 //        String message = "Mise à jour réussie";
 //        return ResponseEntity.ok().body(message);
 //    }
-
     @DeleteMapping(value = "/searches/{id}")
     public ResponseEntity<Object> deleteSearch(@PathVariable Long productId) {
 
