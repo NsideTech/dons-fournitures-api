@@ -15,6 +15,8 @@ public class Give {
     private String name;
 
     private String phone;
+
+    //test
     private String email;
     private String pays;
 
