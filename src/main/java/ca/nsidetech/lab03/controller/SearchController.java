@@ -23,7 +23,7 @@ public class SearchController {
         return ResponseEntity.ok().body(searches);
     }
 
-    @GetMapping(value = "/searches/{searchId}")
+    @GetMapping(value = "/all/{searchId}")
     public ResponseEntity<Object> getSearchById(@PathVariable Long searchId) {
         Optional<Search> foundSearch = searchService.getSearchById(searchId);
         if (foundSearch.isEmpty()) {
@@ -47,16 +47,18 @@ public class SearchController {
 //        String message = "Mise à jour réussie";
 //        return ResponseEntity.ok().body(message);
 //    }
-    @DeleteMapping(value = "/searches/{id}")
-    public ResponseEntity<Object> deleteSearch(@PathVariable Long productId) {
 
-        Optional<Search> product = searchService.getSearchById((productId));
+    @DeleteMapping(value = "/searches/{searchid}")
+    public ResponseEntity<Object> deleteSearch(@PathVariable Long searchid) {
 
-       if(product.isPresent()){
-           searchService.deleteSearch(product.get());
-           String message = "Le produit a été supprimé";
+        Optional<Search> searches = searchService.getSearchById((searchid));
+
+       if(searches.isPresent()){
+           searchService.deleteSearch(searches.get());
+           String message = "la demande " + searches.get().getName() + " a été supprimé";
            return ResponseEntity.ok().body(message);
        }
+
        return ResponseEntity.badRequest().build();
     }
 }
