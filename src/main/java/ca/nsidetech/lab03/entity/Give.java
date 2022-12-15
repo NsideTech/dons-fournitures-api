@@ -16,7 +16,7 @@ public class Give {
 
     private String phone;
 
-    //test
+    //testons
     private String email;
     private String pays;
 
