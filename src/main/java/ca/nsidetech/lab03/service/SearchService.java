@@ -21,9 +21,9 @@ public class SearchService {
         return (List<Search>) searchRepository.findAll();
     }
 
-    public void updateSearch(Search search) {
-        searchRepository.save(search);
-    }
+ //   public void updateSearch(Search search) {
+ //       searchRepository.save(search);
+ //   }
 
     public Optional<Search> getSearchById(Long id) {
         return searchRepository.findById(id);

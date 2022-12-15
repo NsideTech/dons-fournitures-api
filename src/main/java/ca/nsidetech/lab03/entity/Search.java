@@ -14,6 +14,7 @@ public class Search {
 
     private String phone;
     private String email;
+    private String ville;
     private String pays;
     private String description;
 
@@ -68,5 +69,13 @@ public class Search {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }

@@ -15,33 +15,43 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
-    private final List<Search> searches = new ArrayList<>();
+//    private final List<Search> searches = new ArrayList<>();
 
-    @GetMapping(value = "/searches")
-    public ResponseEntity<List<Search>> getSearch(@RequestParam(required = false) String name) {
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<Search>> getSearch() {
         List<Search> searches = searchService.getSearch();
         return ResponseEntity.ok().body(searches);
+    }
+
+    @GetMapping(value = "/searches/{searchId}")
+    public ResponseEntity<Object> getSearchById(@PathVariable Long searchId) {
+        Optional<Search> foundSearch = searchService.getSearchById(searchId);
+        if (foundSearch.isEmpty()) {
+            return ResponseEntity.badRequest().body("Produit inexistant");
+        }
+        return ResponseEntity.ok().body(foundSearch);
     }
 
     @PostMapping(value = "/searches")
     public ResponseEntity<Object> saveSearch(@RequestBody Search search) {
         searchService.saveSearch(search);
 
-        String message = "Sauvegarde réussie";
+        String message = "Sauvegarde demande de " + search.getName() + " reussie";
         return ResponseEntity.ok().body(message);
     }
 
-    @PutMapping(value = "/searches/{id}")
-    public ResponseEntity<Object> updateSearch(@RequestBody Search search, @PathVariable Long productId) {
-        searchService.updateSearch(search);
+//    @PutMapping(value = "/searches/{id}")
+//    public ResponseEntity<Object> updateSearch(@RequestBody Search search, @PathVariable Long productId) {
+//        searchService.updateSearch(search);
 
-        String message = "Mise à jour réussie";
-        return ResponseEntity.ok().body(message);
-    }
+//        String message = "Mise à jour réussie";
+//        return ResponseEntity.ok().body(message);
+//    }
 
     @DeleteMapping(value = "/searches/{id}")
     public ResponseEntity<Object> deleteSearch(@PathVariable Long productId) {
-       Optional<Search> product = searchService.getSearchById((productId));
+
+        Optional<Search> product = searchService.getSearchById((productId));
 
        if(product.isPresent()){
            searchService.deleteSearch(product.get());
