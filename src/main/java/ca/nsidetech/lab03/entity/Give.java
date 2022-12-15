@@ -15,10 +15,20 @@ public class Give {
     private String phone;
     private String email;
     private String pays;
+
+    private String ville;
     private String description;
     
 
     public Give() {
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
     public Long getId() {
