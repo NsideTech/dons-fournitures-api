@@ -27,7 +27,7 @@ public class GiveController {
     public ResponseEntity<Object> saveGive(@RequestBody Give give) {
         giveService.saveGive(give);
 
-        String message = "Votre " + give.getName() + " Sauvegarde réussie";
+        String message = "Votre " + give.getNom() + " Sauvegarde réussie";
         return ResponseEntity.ok().body(message);
     }
 }

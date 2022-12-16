@@ -35,7 +35,7 @@ public class SearchController {
     public ResponseEntity<Object> saveSearch(@RequestBody Search search) {
         searchService.saveSearch(search);
 
-        String message = "Sauvegarde demande de " + search.getName() + " reussie";
+        String message = "Sauvegarde demande de " + search.getNom() + " reussie";
         return ResponseEntity.ok().body(message);
     }
 
@@ -46,7 +46,7 @@ public class SearchController {
 
        if(searches.isPresent()){
            searchService.deleteSearch(searches.get());
-           String message = "la demande " + searches.get().getName() + " a été supprimé";
+           String message = "la demande " + searches.get().getNom() + " a été supprimé";
            return ResponseEntity.ok().body(message);
        }
 

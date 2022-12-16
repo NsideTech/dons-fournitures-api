@@ -11,7 +11,7 @@ public class Give {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String nom;
     private String phone;
     private String email;
     private String pays;
@@ -37,12 +37,12 @@ public class Give {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getPhone() {
