@@ -15,7 +15,6 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
-//    private final List<Search> searches = new ArrayList<>();
 
     @GetMapping(value = "/all")
     public ResponseEntity<List<Search>> getSearch() {
@@ -39,14 +38,6 @@ public class SearchController {
         String message = "Sauvegarde demande de " + search.getName() + " reussie";
         return ResponseEntity.ok().body(message);
     }
-
-//    @PutMapping(value = "/searches/{id}")
-//    public ResponseEntity<Object> updateSearch(@RequestBody Search search, @PathVariable Long productId) {
-//        searchService.updateSearch(search);
-
-//        String message = "Mise à jour réussie";
-//        return ResponseEntity.ok().body(message);
-//    }
 
     @DeleteMapping(value = "/searches/{searchid}")
     public ResponseEntity<Object> deleteSearch(@PathVariable Long searchid) {

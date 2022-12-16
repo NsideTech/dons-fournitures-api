@@ -19,17 +19,5 @@ public class GiveService {
     public List<Give> getGive() {
         return (List<Give>) giveRepository.findAll();
     }
-
-    public void updateGive(Give give) {
-        giveRepository.save(give);
-    }
-
-    public Optional<Give> getGiveById(Long id) {
-        return giveRepository.findById(id);
-    }
-
-    public void deleteGive(Give give) {
-        giveRepository.delete(give);
-    }
 }
 

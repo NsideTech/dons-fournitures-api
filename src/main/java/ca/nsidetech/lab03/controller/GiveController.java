@@ -23,31 +23,11 @@ public class GiveController {
         return ResponseEntity.ok().body(gives);
     }
 
-    @PostMapping(value = "/gives")
+    @PostMapping(value = "/give")
     public ResponseEntity<Object> saveGive(@RequestBody Give give) {
         giveService.saveGive(give);
 
-        String message = " Votre produit  Sauvegarde réussie";
+        String message = "Votre " + give.getName() + " Sauvegarde réussie";
         return ResponseEntity.ok().body(message);
-    }
-
-    @PutMapping(value = "/gives/{id}")
-    public ResponseEntity<Object> updateSearch(@RequestBody Give give, @PathVariable Long id) {
-        giveService.updateGive(give);
-
-        String message = "Mise à jour réussie";
-        return ResponseEntity.ok().body(message);
-    }
-
-    @DeleteMapping(value = "/gives/{id}")
-    public ResponseEntity<Object> deleteGive(@PathVariable Long id) {
-        Optional<Give> give = giveService.getGiveById((id));
-
-        if(give.isPresent()){
-            giveService.deleteGive(give.get());
-            String message = "Le produit a été supprimé";
-            return ResponseEntity.ok().body(message);
-        }
-        return ResponseEntity.badRequest().build();
     }
 }
