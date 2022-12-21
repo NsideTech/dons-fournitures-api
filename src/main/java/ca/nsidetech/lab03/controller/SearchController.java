@@ -35,7 +35,7 @@ public class SearchController {
     public ResponseEntity<Object> saveSearch(@RequestBody Search search) {
         searchService.saveSearch(search);
 
-        String message = "Sauvegarde demande de " + search.getNom() + " reussie";
+        String message = "Sauvegarde de la recherche  de " + search.getNom() + " reussie";
         return ResponseEntity.ok().body(message);
     }
 
